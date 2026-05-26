@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Наші Філії</title>
+</head>
+<body>
+    <h1>Список філій навчального центру</h1>
+    
+    <ul>
+        {% for branch in branches %}
+            <li>
+                <strong>{{ branch.name }}</strong> (Місто: {{ branch.city }}) - Статус: {{ branch.status }}
+            </li>
+        {% empty %}
+            <li>Наразі немає жодної філії. Додайте їх через адмін-панель!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
