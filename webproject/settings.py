@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-spl^qowm+562g93#w)2-7oixa(c=^psw4!)nw4kz-@66@fc#lm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['edu-center-api.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition

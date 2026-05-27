@@ -82,6 +82,7 @@ class Lesson(models.Model):
     date = models.DateField(verbose_name="Дата проведення")
     start_time = models.TimeField(verbose_name="Час початку")
     end_time = models.TimeField(verbose_name="Час закінчення")
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"Урок {self.group.name} ({self.date} | {self.start_time} - {self.end_time})"        

@@ -11,13 +11,15 @@ class LessonConflictTest(TestCase):
         self.group = Group.objects.create(name="Alpha", branch=self.branch)
 
     def test_lesson_overlap_conflict(self):
-        """Перевірка, що система не дозволяє створити уроки, які накладаються"""
+        
         date = timezone.now().date()
         
-
         Lesson.objects.create(
-            date=date, start_time="10:00:00", end_time="11:00:00",
-            group=self.group, subject=self.subject
+            date=date, 
+            start_time="10:00:00", 
+            end_time="11:00:00",
+            group=self.group, 
+            subject=self.subject  
         )
 
         data = {
@@ -29,6 +31,7 @@ class LessonConflictTest(TestCase):
         }
         
         serializer = LessonSerializer(data=data)
-    
-        self.assertFalse(serializer.is_valid())
+        
+        
+        self.assertFalse(serializer.is_valid(), "Серіалізатор мав повернути False через накладку часу")
         self.assertIn('conflict_error', serializer.errors)
